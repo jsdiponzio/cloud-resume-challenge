@@ -1,0 +1,262 @@
+* {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: rgb(249, 233, 233);
+}
+
+h1,
+h2 {
+    color: rgb(165, 93, 93);
+}
+
+h2 {
+    margin: 0 0 5px 0;
+    text-align: center;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(196, 136, 136);
+}
+
+h3,
+p,
+ul,
+a {
+    color: rgb(91, 62, 62);
+}
+
+h3, 
+h4,
+ul, 
+p {
+    margin: 0;
+}
+
+a:hover {
+    color: rgb(196, 136, 136);
+}
+
+
+header,
+.skills,
+.about,
+.education,
+.certifications,
+.experience,
+.projects,
+footer,
+.error {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+header,
+.bio,
+.about,
+.content,
+footer,
+.error {
+    width: 840px;
+    margin: 0 auto 20px;
+}
+
+header {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+
+.bio {
+    display: grid;
+    grid-template-columns: 250px 610px;
+    justify-content: center;
+    column-gap: 20px;
+}
+
+.bio-info {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.contact {
+    display: flex;
+    gap: 12px;
+}
+
+.contact-info,
+.contact-icons {
+    list-style: none;
+    padding: 0;
+    font-weight: 600;
+}
+
+.contact-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 5px 0 0;
+}
+
+.contact-icons img {
+    height: 18px;
+    width: auto;
+}
+
+.email img {
+    height: 14px;
+    width: auto;
+}
+
+.contact-info li {
+    margin: 10px 0;
+}
+
+.socials img {
+    height: 30px;
+    width: auto;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.skills ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 170px 170px 170px;
+    column-gap: 20px;
+}
+
+.skills li {
+    margin: 5px 0;
+}
+
+.about {
+    text-align: justify;
+}
+
+.content,
+.content-right {
+    display: flex;
+    gap: 20px;
+}
+
+.content {
+    width: 880px;
+    justify-content: space-between;
+}
+
+.experience {
+    flex: 0 0 455px;
+}
+
+.content-right {
+    flex-direction: column;
+}
+
+.education h3 {
+    text-align-last: justify;
+}
+
+.degree,
+.cert,
+.project-name,
+.job-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3px;
+}
+
+.degree p,
+.cert p,
+.project-name p,
+.job-title p {
+    font-style: italic;
+    font-weight: 300;
+}
+
+.project-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.project a {
+    margin-bottom: 5px;
+}
+
+.project, 
+.job {
+    margin-bottom: 15px;
+}
+
+.job h4 {
+    margin-bottom: 3px;
+
+}
+.job-desc {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: 280px 280px 280px;
+}
+
+.counter {
+    display: flex;
+}
+
+.resume {
+    justify-self: center;
+}
+
+.copyright {
+    text-align: right;
+    justify-self: end;
+}
+
+.error {
+    text-align: center;
+}
+
+.error h2 {
+    font-size: 68px;
+    color:rgb(196, 136, 136)
+}
+
+.error h3 {
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.error a {
+    font-size: 32px;
+    margin-top: 12px;
+}
+
+
+
+
+
+
+
