@@ -1,7 +1,10 @@
 from google.cloud import firestore
 
-def increment_fetch(request):
-    db = firestore.Client(project='jess-cloud-resume-challenge')
+def increment_fetch(request, test=False):
+    if not test:
+        db = firestore.Client(project='jess-cloud-resume-challenge')
+    else:
+        db = test
     doc_ref = db.collection(u'visitors').document(u'count')
     doc = doc_ref.get()
     count = doc.to_dict()['visitors']
