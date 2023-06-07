@@ -8,8 +8,19 @@ terraform {
 }
 
 provider "google" {
-  project = jess-cloud-resume-challenge
+  project = "jess-cloud-resume-challenge"
   region = "us-east1"
   zone = "us-east1-b"
-  credentials = file(/jess-cloud-resume-challenge-service-account.json)
+}
+
+resource "google_storage_bucket" "static" {
+  name = "diponzio-test-1"
+  location = "US"
+  storage_class = "STANDARD"
+  force_destroy = true
+
+  website {
+    main_page_suffix = "index.html"
+    not_found_page = "404.html"
+  }
 }
