@@ -130,6 +130,28 @@ resource "google_compute_global_forwarding_rule" "test_fr_https" {
   ip_address = google_compute_global_address.default.address
 }
 
+#firestore database
+resource "google_project_service" "firestore" {
+  service = "firestore.googleapis.com"
+}
+
+resource "google_firestore_database" "database" {
+  name        = "(default)"
+  location_id = "us-east1"
+  type        = "FIRESTORE_NATIVE"
+
+  depends_on = [google_project_service.firestore]
+}
+
+#add collection & document
+resource "google_firestore_document" "visitors" {
+  collection = "site-views"
+  document_id = "visitors"
+  fields = "{\"visitor-count\":{\"integerValue\":0}}"
+}
+
+
+
 
 
 
