@@ -3,7 +3,8 @@ steps:
 - name: python:3.9
   id: INSTALL_REQ
   entrypoint: python3
-  args: '-m'
+  args: 
+  - '-m'
   - 'pip'
   - 'install'
   - '-r'
@@ -18,4 +19,5 @@ steps:
   - 'back-end/test.py'
   waitFOR:
   - INSTALL
+- 
 ... 
