@@ -1,5 +1,5 @@
 import unittest
-from api import increment_fetch
+from main import increment_fetch
 import mockfirestore
 
 class TestIncrementFetch(unittest.TestCase):
