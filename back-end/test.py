@@ -1,6 +1,6 @@
 import unittest
 from main import increment_fetch
-from mockfirestore import mockfirestore
+from mockfirestore import MockFirestore
 
 class TestIncrementFetch(unittest.TestCase):
 
@@ -8,7 +8,7 @@ class TestIncrementFetch(unittest.TestCase):
 		data = {
 			u'visitor-count': 3
 		}
-		mock_db = mockfirestore.MockFirestore()
+		mock_db = MockFirestore()
 		mock_db.collection(u'site-views').document(u'visitors').set(data)
 		updated_count, status_code, headers = increment_fetch(request="request", test=mock_db)
 		self.assertIsNotNone(updated_count)
@@ -17,7 +17,7 @@ class TestIncrementFetch(unittest.TestCase):
 		data = {
 			u'visitor-count': 3
 		}
-		mock_db = mockfirestore.MockFirestore()
+		mock_db = MockFirestore()
 		mock_db.collection(u'site-views').document(u'visitors').set(data)
 		updated_count, status_code, headers = increment_fetch(request="request", test=mock_db)
 		self.assertIsInstance(updated_count, str)	
@@ -26,7 +26,7 @@ class TestIncrementFetch(unittest.TestCase):
 		data = {
 			u'visitor-count': 3
 		}
-		mock_db = mockfirestore.MockFirestore()
+		mock_db = MockFirestore()
 		mock_db.collection(u'site-views').document(u'visitors').set(data)
 		updated_count, status_code, headers = increment_fetch(request="request", test=mock_db)
 		self.assertEqual(int(updated_count), 4)
@@ -35,7 +35,7 @@ class TestIncrementFetch(unittest.TestCase):
 		data = {
 			u'visitor-count': 3
 		}
-		mock_db = mockfirestore.MockFirestore()
+		mock_db = MockFirestore()
 		mock_db.collection(u'site-views').document(u'visitors').set(data)
 		updated_count, status_code, headers = increment_fetch(request="request", test=mock_db)
 		self.assertEqual(status_code, 200)	
@@ -44,7 +44,7 @@ class TestIncrementFetch(unittest.TestCase):
 		data = {
 			u'visitor-count': 3
 		}
-		mock_db = mockfirestore.MockFirestore()
+		mock_db = MockFirestore()
 		mock_db.collection(u'site-views').document(u'visitors').set(data)
 		updated_count, status_code, headers = increment_fetch(request="request", test=mock_db)
 		self.assertIsNotNone(headers)	
