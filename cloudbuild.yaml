@@ -1,7 +1,7 @@
 ---
 steps:
 - name: python:3.9
-  id: INSTALL_REQ
+  id: 'install dependencies'
   entrypoint: python3
   args: 
   - '-m'
@@ -9,12 +9,17 @@ steps:
   - 'install'
   - '-r'
   - 'back-end/requirements.txt'
+  options:
+  logging: CLOUD_LOGGING_ONLYdns
 - name: python:3.9
   entrypoint: python3
-  id: RUN_TEST
+  id: 'run test'
   args:
   - '-m'
   - 'test'
   - '-v'
-  - 'back-end/test.py'
+  - './back-end/'
+  - 'test.py'
+  options:
+  logging: CLOUD_LOGGING_ONLY
 ... 
