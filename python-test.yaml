@@ -1,7 +1,7 @@
 ---
 steps:
-- name: python:3.9
-  id: 'install dependencies'
+- id: 'install dependencies'
+  name: python:3.9
   entrypoint: python3
   args: 
   - '-m'
@@ -10,11 +10,19 @@ steps:
   - '-r'
   - 'back-end/requirements.txt'
   - '--user'
-- name: python:3.9
+- id: 'run test'
+  name: python:3.9
   entrypoint: python3
-  id: 'run test'
   args:
   - 'back-end/test.py'
   waitFor:
   - 'install dependencies'
+- id: 'terraform init'
+  name: 'hashicorp/terraform:1.0.0'
+  script: terraform init
+- id: 'terraform plan'
+  name: 'hashicorp/terraform:1.0.0'
+  script: terraform plan 
+  waitFor:
+  - 'terraform init'
 ... 
