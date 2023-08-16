@@ -1,5 +1,6 @@
 from google.cloud import firestore
 
+#increment function
 def increment_fetch(request, test=False):
     if not test:
         db = firestore.Client(project='jess-cloud-resume-challenge')
