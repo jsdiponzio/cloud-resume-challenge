@@ -9,8 +9,6 @@ steps:
   - 'install'
   - '-r'
   - 'back-end/requirements.txt'
-  options:
-  logging: CLOUD_LOGGING_ONLYdns
 - name: python:3.9
   entrypoint: python3
   id: 'run test'
@@ -20,6 +18,4 @@ steps:
   - '-v'
   - './back-end/'
   - 'test.py'
-  options:
-  logging: CLOUD_LOGGING_ONLY
 ... 
