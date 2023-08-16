@@ -14,5 +14,6 @@ steps:
   entrypoint: python3
   id: 'run test'
   args:
+  - '-m'
   - 'back-end/test.py'
 ... 
