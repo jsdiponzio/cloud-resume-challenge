@@ -17,4 +17,10 @@ steps:
   - 'back-end/test.py'
   waitFor:
   - 'install dependencies'
+- name: 'hashicorp/terraform:1.0.0'
+  id: 'terraform init'
+  script: terraform init
+- name: 'hashicorp/terraform:1.0.0' 
+  id: 'terraform plan'
+  script: terraform plan
 ... 
