@@ -9,9 +9,10 @@ steps:
   - 'install'
   - '-r'
   - 'back-end/requirements.txt'
+- name: 
 - name: python:3.9
   entrypoint: python3
   id: 'run test'
   args:
-  - './back-end/test.py'
+  - 'back-end/test.py'
 ... 
