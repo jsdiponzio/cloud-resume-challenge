@@ -10,13 +10,6 @@ steps:
   - '-r'
   - 'back-end/requirements.txt'
   - '--user'
-- name: python3.9
-  id: 'install mockfirestore'
-  entrypoint: python3
-  args:
-  - 'pip'
-  - 'install'
-  - 'mock-firestore'
 - name: python:3.9
   entrypoint: python3
   id: 'run test'
@@ -24,5 +17,4 @@ steps:
   - 'back-end/test.py'
   waitFor:
   - 'install dependencies'
-  - 'install mockfirestore'
 ... 
