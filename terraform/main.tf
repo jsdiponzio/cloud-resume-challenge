@@ -260,7 +260,7 @@ output "function_uri" {
   value = google_cloudfunctions2_function.increment_function.service_config[0].uri
 }
 
-resource "google_cloudfunctions2_function_iam_member" "function_iam" {
+resource "google_cloudfunctions2_function_iam_binding" "function_iam" {
   cloud_function = google_cloudfunctions2_function.increment_function.name
   location       = "us-east1"
   role           = "roles/run.invoker"
