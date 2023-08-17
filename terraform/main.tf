@@ -263,7 +263,7 @@ output "function_uri" {
 resource "google_cloudfunctions2_function_iam_member" "function_iam" {
   cloud_function = google_cloudfunctions2_function.increment_function.name
   location       = "us-east1"
-  role           = "roles/cloudfunctions.invoker"
+  role           = "roles/run.invoker"
   member         = "allUsers"
 }
 
