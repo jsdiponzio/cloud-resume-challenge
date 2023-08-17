@@ -21,12 +21,10 @@ steps:
   name: 'hashicorp/terraform:1.0.0'
   script: terraform init
   dir: terraform
-  env: 'GOOGLE_APPLICATION_CREDENTIALS=$_CREDENTIALS'
 - id: 'terraform plan'
   name: 'hashicorp/terraform:1.0.0'
   script: terraform plan 
   dir: terraform
-  env: 'GOOGLE_APPLICATION_CREDENTIALS=$_CREDENTIALS'
   waitFor:
   - 'terraform init'
 ... 
