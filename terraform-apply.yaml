@@ -1,0 +1,18 @@
+---
+- id: 'terraform init'
+  name: 'hashicorp/terraform:1.0.0'
+  script: terraform init
+  dir: terraform
+- id: 'terraform plan'
+  name: 'hashicorp/terraform:1.0.0'
+  script: terraform plan 
+  dir: terraform
+  waitFor:
+  - 'terraform init'
+- id: 'terraform apply'
+  name: 'hashicorp/terraform:1.0.0'
+  script: terraform apply --auto-approve
+  dir: terraform
+  waitFor:
+  - 'terraform plan'
+...
