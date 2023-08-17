@@ -27,4 +27,6 @@ steps:
   dir: terraform
   waitFor:
   - 'terraform init'
+options:
+  logging: CLOUD_LOGGING_ONLY
 ... 
