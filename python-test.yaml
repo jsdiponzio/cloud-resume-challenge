@@ -1,13 +1,5 @@
 ---
 steps:
-- id: 'terraform plan'
-  name: 'hashicorp/terraform:1.0.0'
-  script: echo
-  args:
-  - '$GOOGLE_APPLICATION_CREDENTIALS'
-  dir: terraform
-  env:
-  - GOOGLE_APPLICATION_CREDENTIALS='${_GCPSA}'
 - id: 'install dependencies'
   name: python:3.9
   entrypoint: python3
@@ -29,14 +21,10 @@ steps:
   name: 'hashicorp/terraform:1.0.0'
   script: terraform init
   dir: terraform
-  env:
-  - GOOGLE_APPLICATION_CREDENTIALS='${_GCPSA}'
 - id: 'terraform plan'
   name: 'hashicorp/terraform:1.0.0'
   script: terraform plan 
   dir: terraform
-  env:
-  - GOOGLE_APPLICATION_CREDENTIALS='${_GCPSA}'
   waitFor:
   - 'terraform init'
 ... 
