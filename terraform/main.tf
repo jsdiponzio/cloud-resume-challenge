@@ -227,9 +227,9 @@ resource "google_firestore_document" "visitors" {
   document_id = "visitors"
   fields      = "{\"VisitorCount\":{\"integerValue\":1}}"
 
-  # lifecycle {
-  #   ignore_changes = all
-  # }
+  lifecycle {
+    ignore_changes = all
+  }
 }
 
 #api
