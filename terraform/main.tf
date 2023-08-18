@@ -225,7 +225,7 @@ resource "google_project_service" "firestore" {
 resource "google_firestore_document" "visitors" {
   collection  = "site-views"
   document_id = "visitors"
-  fields      = "{\"visitor-count\":{\"integerValue\":\"0\"}}"
+  fields      = "{\"VisitorCount\":{\"integerValue\":1}}"
 
   # lifecycle {
   #   ignore_changes = all

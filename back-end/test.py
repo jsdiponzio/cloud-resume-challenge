@@ -6,7 +6,7 @@ class TestIncrementFetch(unittest.TestCase):
 
 	def test_count_not_null(self):
 		data = {
-			u'visitor-count': 3
+			u'VisitorCount': 3
 		}
 		mock_db = MockFirestore()
 		mock_db.collection(u'site-views').document(u'visitors').set(data)
@@ -15,7 +15,7 @@ class TestIncrementFetch(unittest.TestCase):
 
 	def test_count_is_str(self):
 		data = {
-			u'visitor-count': 3
+			u'VisitorCount': 3
 		}
 		mock_db = MockFirestore()
 		mock_db.collection(u'site-views').document(u'visitors').set(data)
@@ -24,7 +24,7 @@ class TestIncrementFetch(unittest.TestCase):
 
 	def test_count_increments(self):
 		data = {
-			u'visitor-count': 3
+			u'VisitorCount': 3
 		}
 		mock_db = MockFirestore()
 		mock_db.collection(u'site-views').document(u'visitors').set(data)
@@ -33,7 +33,7 @@ class TestIncrementFetch(unittest.TestCase):
 	
 	def test_status_200(self):
 		data = {
-			u'visitor-count': 3
+			u'VisitorCount': 3
 		}
 		mock_db = MockFirestore()
 		mock_db.collection(u'site-views').document(u'visitors').set(data)
@@ -42,7 +42,7 @@ class TestIncrementFetch(unittest.TestCase):
 
 	def test_headers_not_null(self):
 		data = {
-			u'visitor-count': 3
+			u'VisitorCount': 3
 		}
 		mock_db = MockFirestore()
 		mock_db.collection(u'site-views').document(u'visitors').set(data)
