@@ -225,47 +225,32 @@ resource "google_project_service" "firestore" {
 resource "google_firestore_document" "visitors" {
   collection  = "site-views"
   document_id = "visitors"
-  fields      = "{\"visitor-count\":{\"integerValue\":0}}"
+  fields      = "{\"visitor-count\":{\"integerValue\":\"0\"}}"
 
-  lifecycle {
-    ignore_changes = all
-  }
+  # lifecycle {
+  #   ignore_changes = all
+  # }
 }
 
 #api
-resource "google_cloudfunctions2_function" "increment_function" {
+resource "google_cloudfunctions_function" "increment_function" {
   name        = "increment-fetch"
-  location    = "us-east1"
   description = "increments vistor count by 1"
+  runtime     = "python39"
 
-  build_config {
-    runtime     = "python39"
-    entry_point = "increment_fetch"
-    source {
-      storage_source {
-        bucket = google_storage_bucket.website.name
-        object = google_storage_bucket_object.backend_code.name
-      }
-    }
-  }
-
-  service_config {
-    max_instance_count = 1
-    available_memory   = "256M"
-    timeout_seconds    = 60
-  }
+  available_memory_mb   = 256
+  source_archive_bucket = google_storage_bucket.website.name
+  source_archive_object = google_storage_bucket_object.backend_code.name
+  trigger_http          = true
+  entry_point           = "increment_fetch"
 }
 
-output "function_uri" {
-  value = google_cloudfunctions2_function.increment_function.service_config[0].uri
+#public invokation to function
+resource "google_cloudfunctions_function_iam_member" "invoker" {
+  region         = "us-east1"
+  cloud_function = google_cloudfunctions_function.increment_function.name
+
+  role   = "roles/cloudfunctions.invoker"
+  member = "allUsers"
 }
-
-resource "google_cloudfunctions2_function_iam_member" "function_iam" {
-  cloud_function = google_cloudfunctions2_function.increment_function.name
-  location       = "us-east1"
-  role           = "roles/run.invoker"
-  member         = "allUsers"
-}
-
-
 
