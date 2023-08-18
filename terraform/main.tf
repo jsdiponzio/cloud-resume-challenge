@@ -120,7 +120,7 @@ resource "google_storage_bucket_object" "phone_icon" {
 }
 
 resource "google_storage_bucket_object" "resume" {
-  name         = "Jessica_DiPonzio_Resume.pdf"
+  name         = "assets/Jessica_DiPonzio_Resume.pdf"
   source       = "../front-end/assets/Jessica_DiPonzio_Resume.pdf"
   content_type = "application/pdf"
   bucket       = google_storage_bucket.website.name
